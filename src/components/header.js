@@ -3,6 +3,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { H1 } from 'common/H1';
 import { UndecoratedLink } from 'common/UndecoratedLink';
+import { MobileNav } from 'components/MobileNav';
+
+const links = [
+  {
+    to: '/about',
+    label: 'about'
+  },
+  {
+    to: '/projects',
+    label: 'projects'
+  },
+  {
+    to: '/contact',
+    label: 'contact'
+  }
+];
 
 const HeaderContainer = styled.header`
   position: sticky;
@@ -68,6 +84,18 @@ const HeaderLink = styled(UndecoratedLink)`
 const NavList = styled.nav`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+const MobileNavMq = styled(MobileNav)`
+  display: none;
+
+  @media (max-width: 500px) {
+    display: block;
+  }
 `;
 
 const NavItem = styled.div`
@@ -82,12 +110,6 @@ const NavItem = styled.div`
     color: #fff;
     transform: scale(1.1);
   }
-
-  @media (max-width: 400px) {
-    font-size: 9px;
-    letter-spacing: 1px;
-    padding: 10px;
-  }
 `;
 
 const Header = ({ siteTitle, siteSubTitle }) => (
@@ -97,16 +119,13 @@ const Header = ({ siteTitle, siteSubTitle }) => (
       <SubtitleWrapper>{siteSubTitle}</SubtitleWrapper>
     </HeaderLink>
     <NavList>
-      <HeaderLink to='/about'>
-        <NavItem>About</NavItem>
-      </HeaderLink>
-      <HeaderLink to='/projects'>
-        <NavItem>Projects</NavItem>
-      </HeaderLink>
-      <HeaderLink to='/contact'>
-        <NavItem>Contact</NavItem>
-      </HeaderLink>
+      {links.map((link) => (
+        <HeaderLink to={link.to} key={link.to}>
+          <NavItem>{link.label}</NavItem>
+        </HeaderLink>
+      ))}
     </NavList>
+    <MobileNavMq width='200px' links={links} />
   </HeaderContainer>
 );
 
