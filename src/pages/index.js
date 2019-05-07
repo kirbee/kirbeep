@@ -29,15 +29,12 @@ const IndexPage = () => (
     </p>
     <List>
       <li>
-        <ListStart>Software:</ListStart> JavaScript (ES6+), React, PHP, HTML5,
-        CSS3
+        <ListStart>Software/Web:</ListStart> JavaScript (ES6+), React, PHP,
+        HTML5, CSS3, Java
       </li>
       <li>
-        <ListStart>Tools/Frameworks</ListStart> Git/GitHub, IntelliJ, VSCode,
-        CraftCMS, Wordpress, AWS, Ansible, Terraform
-      </li>
-      <li>
-        <ListStart>Other things:</ListStart> A/B Testing, Agile (Scrum)
+        <ListStart>Tools/Frameworks:</ListStart> CraftCMS, Wordpress,
+        Git/GitHub, IntelliJ, VSCode,
       </li>
     </List>
   </Layout>
